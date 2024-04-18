@@ -21,6 +21,8 @@ public:
 
 	
 protected:
+	virtual void BeginPlay() override;
+	
 private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta=(AllowPrivateAccess="true"))
 	class USpringArmComponent* SpringArmComponent;
@@ -36,6 +38,8 @@ private:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Movement", meta=(AllowPrivateAccess="true"));
 	float RotateSpeed = 100.0f;
+
+	APlayerController* PlayerControllerRef;
 public:
 //	virtual void Tick(float DeltaTime) override;
 };
