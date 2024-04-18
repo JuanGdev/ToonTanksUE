@@ -30,6 +30,19 @@ void ATank::BeginPlay()
 	PlayerControllerRef = Cast<APlayerController>(GetController());
 }
 
+void ATank::Tick(float DeltaTime)
+{
+	Super::BeginPlay();
+
+	if(PlayerControllerRef)
+	{
+		FHitResult TraceHitResult;
+		PlayerControllerRef->GetHitResultUnderCursor(ECollisionChannel::ECC_Visibility, false, TraceHitResult);
+		DrawDebugSphere(GetWorld(), TraceHitResult.ImpactPoint, 25.0f, 12, FColor::MakeRandomColor(), false, -1.0f);
+	}
+}
+
+
 void ATank::Move(float Value)
 {
 	FVector DeltaLocation = FVector::ZeroVector;

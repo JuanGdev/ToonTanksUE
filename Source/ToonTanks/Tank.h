@@ -41,5 +41,5 @@ private:
 
 	APlayerController* PlayerControllerRef;
 public:
-//	virtual void Tick(float DeltaTime) override;
+	virtual void Tick(float DeltaTime) override;
 };
