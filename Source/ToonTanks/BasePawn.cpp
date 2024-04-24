@@ -3,6 +3,7 @@
 #include "NavigationSystemTypes.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SceneComponent.h"
+#include "Projectile.h"
 
 // Sets default values
 ABasePawn::ABasePawn()
@@ -38,5 +39,8 @@ void ABasePawn::RotateTurret(FVector LookAtTarget)
 
 void ABasePawn::Fire()
 {
-	DrawDebugSphere(GetWorld(), ProjectileSpawnPoint->GetComponentLocation(), 10.0f, 12, FColor::Red, false, 2.0f);
+	GetWorld()->SpawnActor<AProjectile>(
+		ProjectileClass,
+		ProjectileSpawnPoint->GetComponentLocation(),
+		ProjectileSpawnPoint->GetComponentRotation());
 }
