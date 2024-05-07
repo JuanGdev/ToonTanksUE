@@ -19,6 +19,9 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	void HandleDestruction();
+
+	APlayerController* GetTankPlayerController() const {return TankPlayerController;};
 	
 protected:
 	virtual void BeginPlay() override;
@@ -39,7 +42,7 @@ private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Movement", meta=(AllowPrivateAccess="true"));
 	float RotateSpeed = 100.0f;
 
-	APlayerController* PlayerControllerRef;
+	APlayerController* TankPlayerController;
 public:
 	virtual void Tick(float DeltaTime) override;
 };

@@ -17,6 +17,7 @@ class TOONTANKS_API ATurret : public ABasePawn
 public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void BeginPlay() override;
+	void HandleDestruction();
 
 private:
 	class ATank* Tank;
